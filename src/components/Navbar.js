@@ -74,6 +74,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
+            <div className="d-flex">
+            <NavLink className="btn btn-primary mx-2" to="/login" role="button">Login</NavLink>
+            <NavLink className="btn btn-primary mx-2"
+            to="/signup" role="button">SignUp</NavLink>
+            </div>
           </div>
         </div>
       </nav>

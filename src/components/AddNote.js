@@ -2,17 +2,26 @@ import React, { useContext, useState } from "react";
 import noteContext from "../context/notes/NoteContext";
 
 const AddNote = () => {
-    const context = useContext(noteContext);
-  const { addNote} = context;
+  const context = useContext(noteContext);
+  const { addNote } = context;
 
-  const [note,setNote] = useState({title: "", description: "", tag: ""});
+  const [note, setNote] = useState({
+    title: "",
+    description: "",
+    tag: "",
+  });
   const handleClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
-  }
+    setNote({
+      title: "",
+      description: "",
+      tag: "",
+    });
+  };
   const onChange = (e) => {
-    setNote({...note, [e.target.name]: e.target.value})
-  }
+    setNote({ ...note, [e.target.name]: e.target.value });
+  };
   return (
     <div>
       <div className="container my-3">
@@ -25,10 +34,14 @@ const AddNote = () => {
             <input
               type="text"
               className="form-control"
+              placeholder="Atleast have 2 characters"
               id="title"
-              name = "title"
+              name="title"
+              value={note.title}
               aria-describedby="emailHelp"
               onChange={onChange}
+              minLength={2}
+              required
             />
           </div>
           <div className="mb-3">
@@ -36,30 +49,43 @@ const AddNote = () => {
               Description
             </label>
             <input
+              placeholder="Atleast have 5 characters"
               type="text"
+              value={note.description}
               className="form-control"
               id="description"
-              name = "description"
+              name="description"
+              onChange={onChange}
+              minLength={5}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="tag" className="form-label">
+              Tag
+            </label>
+            <input
+              type="text"
+              value={note.tag}
+              className="form-control"
+              id="tag"
+              name="tag"
+              placeholder="Default"
               onChange={onChange}
             />
           </div>
-          <div className="mb-3 form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary" onClick={handleClick}>
+          <button
+            disabled={note.title.length < 2 || note.description.length < 5}
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleClick}
+          >
             Add Note
           </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddNote
+export default AddNote;
