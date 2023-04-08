@@ -1,42 +1,32 @@
 import React from "react";
 import { useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import "./navbar.css";
 
-// const [navOpen, setNavOpen] = useState(false);    // way to toogle the navbar
-
-// function toggleNav() {
-//   setNavOpen((state) => !state);
-// }
-
-// <button
-//   onClick={toggleNav}
-//   className={navOpen ? "navbar-toggler" : "navbar-toggler collapsed"}
-//   type="button"
-//   data-bs-toggle="collapse"
-//   data-bs-target="#navbarNav"
-//   aria-controls="navbarNav"
-//   aria-expanded="false"
-//   aria-label="Toggle navigation"
-// ></button>;
-
-const Navbar = () => {
-  const navButton = useRef(null);
-  const linksContainerRef = useRef(null);
+const Navbar = (props) => {
+  const ref = useRef(null);
+  let navigate = useNavigate();
   function collapseNav() {
-    navButton.current.classList.add("collapsed");
-    linksContainerRef.current.classList.remove("show");
+    ref.current.click();
+    // navButton.current.classList.add("collapsed");
+    // linksContainerRef.current.classList.remove("show");
+  }
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    props.showAlert("Logged Out", "success");
+    navigate('/login');
+    ref.current.click();
   }
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/" onClick={collapseNav}>
+          <NavLink className="navbar-brand" to="/">
             eNoteBook
           </NavLink>
 
           <button
-            ref={navButton}
+            ref={ref}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -47,11 +37,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className="collapse navbar-collapse"
-            id="navbarSupportedContent"
-            ref={linksContainerRef}
-          >
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink
@@ -74,11 +60,24 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex">
-            <NavLink className="btn btn-primary mx-2" to="/login" role="button">Login</NavLink>
-            <NavLink className="btn btn-primary mx-2"
-            to="/signup" role="button">SignUp</NavLink>
-            </div>
+            {!localStorage.getItem('token') ? <form className="d-flex">
+              <Link
+                className="btn btn-primary mx-1"
+                to="/login"
+                role="button"
+                onClick={collapseNav}
+              >
+                Login
+              </Link>
+              <Link
+                className="btn btn-primary mx-1"
+                to="/signup"
+                role="button"
+                onClick={collapseNav}
+              >
+                SignUp
+              </Link>
+            </form> : <button className="btn btn-primary" onClick={handleLogout}> Logout </button>}
           </div>
         </div>
       </nav>
