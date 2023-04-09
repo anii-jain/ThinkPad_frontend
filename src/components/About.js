@@ -17,7 +17,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-               About eNoteBook
+               About ThinkPad
             </button>
           </h2>
           <div
@@ -27,7 +27,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style = {{backgroundColor: 'white', color: 'black', borderWidth: '1px', borderColor: 'black'}}>
-            eNoteBook is a platform where you can store you Notes or other important details. This platform stores you notes and gives you an upperhand to access them from anywhere by loggin into your account.
+            ThinkPad is a platform where you can store you Notes or other important details. This platform stores you notes and gives you an upperhand to access them from anywhere by loggin into your account.
             </div>
           </div>
         </div>
