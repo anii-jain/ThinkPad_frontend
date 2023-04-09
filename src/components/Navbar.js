@@ -7,15 +7,13 @@ const Navbar = (props) => {
   const ref = useRef(null);
   let navigate = useNavigate();
   function collapseNav() {
-    ref.current.click();
-    // navButton.current.classList.add("collapsed");
-    // linksContainerRef.current.classList.remove("show");
+    {window.innerWidth<=991 && ref.current.click();}
   }
   const handleLogout = () => {
     localStorage.removeItem('token');
     props.showAlert("Logged Out", "success");
     navigate('/login');
-    ref.current.click();
+    {window.innerWidth<=991 && ref.current.click();}
   }
   return (
     <div>

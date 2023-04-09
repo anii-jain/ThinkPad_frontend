@@ -68,11 +68,10 @@ const Notes = (props) => {
               </h5>
               <button
                 type="button"
-                className="close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >
-                <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">
@@ -130,7 +129,7 @@ const Notes = (props) => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-primary"
                 data-bs-dismiss="modal"
                 ref = {refClose}
               >

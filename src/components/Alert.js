@@ -3,13 +3,12 @@ import React from "react";
 const Alert = (props) => {
   const capitalize = (word) => {
     if (word === "danger"){
-      word = "error";
+      word = "Error: ";
+      return word;
     }
     else if (word === "success"){
       return "";
     }
-    let lower = word.toLowerCase();
-    return lower[0].toUpperCase() + lower.slice(1);
   }
   return (
     <div style={{height: '60px'}}>

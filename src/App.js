@@ -32,7 +32,6 @@ function App() {
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signup" element={<SignUp showAlert={showAlert} />} />
               <Route path="/" element={<Home showAlert={showAlert} />} />
-              {/* <Route exact path="/contact" element={<Contact />} /> */}
             </Routes>
           </div>
         </BrowserRouter>
