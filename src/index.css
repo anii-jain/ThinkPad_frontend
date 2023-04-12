@@ -15,7 +15,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+body{
+  background-color: rgb(231, 249, 249);
+  /* background-image: url(https://cdn.dribbble.com/users/156849/screenshots/6725428/33.gif); */
+  /* background-size: cover; */
+}
 i{
   cursor: pointer;
 }

@@ -8,6 +8,7 @@ import Alert from "./components/Alert";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { useState } from "react";
+import Userdata from "./components/Userdata";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -31,6 +32,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signup" element={<SignUp showAlert={showAlert} />} />
+              <Route exact path="/account" element={<Userdata showAlert={showAlert} />} />
               <Route path="/" element={<Home showAlert={showAlert} />} />
             </Routes>
           </div>

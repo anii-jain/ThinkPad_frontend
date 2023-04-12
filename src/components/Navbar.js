@@ -7,18 +7,18 @@ const Navbar = (props) => {
   const ref = useRef(null);
   let navigate = useNavigate();
   function collapseNav() {
-    {window.innerWidth<=991 && ref.current.click();}
+    window.innerWidth <= 991 && ref.current.click();
   }
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     props.showAlert("Logged Out", "success");
-    navigate('/login');
-    {window.innerWidth<=991 && ref.current.click();}
-  }
+    navigate("/login");
+    window.innerWidth <= 991 && ref.current.click();
+  };
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
+    <div className="navb">
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid mx-1">
           <NavLink className="navbar-brand" to="/">
             <strong>ThinkPad</strong>
           </NavLink>
@@ -47,6 +47,7 @@ const Navbar = (props) => {
                   Home
                 </NavLink>
               </li>
+
               <li className="nav-item">
                 <NavLink
                   className="nav-link"
@@ -58,24 +59,33 @@ const Navbar = (props) => {
                 </NavLink>
               </li>
             </ul>
-            {!localStorage.getItem('token') ? <form className="d-flex">
-              <Link
-                className="btn btn-primary mx-1"
-                to="/login"
-                role="button"
-                onClick={collapseNav}
-              >
-                Login
-              </Link>
-              <Link
-                className="btn btn-primary mx-1"
-                to="/signup"
-                role="button"
-                onClick={collapseNav}
-              >
-                SignUp
-              </Link>
-            </form> : <button className="btn btn-primary" onClick={handleLogout}> Logout </button>}
+            {!localStorage.getItem("token") ? (
+              <form className="d-flex">
+                <Link
+                  className="btn btn-primary mr-1"
+                  to="/login"
+                  role="button"
+                  onClick={collapseNav}
+                >
+                  Login
+                </Link>
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/signup"
+                  role="button"
+                  onClick={collapseNav}
+                >
+                  SignUp
+                </Link>
+              </form>
+            ) : (
+              <div className="lognav" style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+                <Link className="fa-solid fa-user mx-3" to="/account" onClick={collapseNav} style={{color:"black"}}></Link>
+                <button className="btn btn-primary" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>

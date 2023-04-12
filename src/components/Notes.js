@@ -82,6 +82,7 @@ const Notes = (props) => {
                     Title
                   </label>
                   <input
+                  autoComplete="off"
                     type="text"
                     className="form-control"
                     placeholder="Atleast have 2 characters"
@@ -98,7 +99,8 @@ const Notes = (props) => {
                   <label htmlFor="edescription" className="form-label">
                     Description
                   </label>
-                  <input
+                  <textarea
+                  autoComplete="off"
                     type="text"
                     className="form-control"
                     placeholder="Atleast have 5 characters"
@@ -115,6 +117,7 @@ const Notes = (props) => {
                     Tag
                   </label>
                   <input
+                  autoComplete="off"
                     type="text"
                     className="form-control"
                     id="etag"

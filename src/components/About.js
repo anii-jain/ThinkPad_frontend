@@ -3,7 +3,7 @@ import "./about.css";
 export default function About() {
 
   return (
-    <div className="container cont" style = {{backgroundColor: 'white', color: 'black', borderWidth: '1px', borderColor: 'black'}}>
+    <div className="container cont" style = {{backgroundColor: "rgb(231, 249, 249)", color: 'black', borderWidth: '1px', borderColor: 'black'}}>
       <h1 className="aboutUs">About Us</h1>
       <div className="accordion" id="accordionExample" >
         <div className="accordion-item" style = {{backgroundColor: 'white', color: 'black', borderWidth: '1px', borderColor: 'black'}}>

@@ -26,7 +26,6 @@ const NoteState = (props) => {
 
 
 
-
     // Add a Note
     const addNote = async (title, description, tag) => {
       
