@@ -37,7 +37,7 @@ const Notes = (props) => {
     setNote({...note, [e.target.name]: e.target.value})
   }
   return (
-    <>
+    <div className="container">
       <AddNote showAlert={props.showAlert}/>
 
       {/* <!-- Button trigger modal --> */}
@@ -149,7 +149,7 @@ const Notes = (props) => {
         </div>
       </div>
 
-      <div className="row my-3">
+      <div className="row my-3" style={{marginLeft:'0px'}}>
         <h3>Your Notes</h3>
         <div className="container">
           {notes.length === 0 && 'No notes to display'}
@@ -160,7 +160,7 @@ const Notes = (props) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

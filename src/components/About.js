@@ -67,7 +67,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              More features coming
+              Contact me
             </button>
           </h2>
           <div
@@ -77,12 +77,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style = {{backgroundColor: 'white', color: 'black', borderWidth: '1px', borderColor: 'black'}}>
-              <ul>
-                <li>A user details page</li>
-                <li>More interactive UI for viewing the notes</li>
-                <li>Upgrading designs</li>
-                <li>Making it more user friendly</li>
-              </ul>
+              Email: xyz.gmail.com
             </div>
           </div>
         </div>
